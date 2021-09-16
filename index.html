@@ -12,6 +12,7 @@
         <div class="bg"></div>
         <header>
             <a href="#" class="logo">Frutas</a>
+            <div class="toggle"></div>
             <ul class="navigation">
                 <li><a href="#" class="active">Inicio</a></li>
                 <li><a href="#">Menu</a></li>
@@ -46,6 +47,14 @@
     </section>
 
     <script>
+
+        let menuToggle = document.querySelector('.toggle');
+        let navigation = document.querySelector('.navigation');
+        menuToggle.onclick = function(){
+            menuToggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+
         //Cambiar imagen en click
         function imgSlider(anything){
             document.querySelector('.fruits').src=anything;
