@@ -22,15 +22,27 @@ addEventListener("DOMContentLoaded", async(e)=>{
     `;
     document.querySelector(".textBox").insertAdjacentHTML('afterbegin', textBox);
     //Imagen
+    // let link = document.createElement('LINK');
+    // let myLinkObj = {
+    //     rel: "shorcut icon",
+    //     href: data.Header.Logo,
+    //     type: "image.jpg"
+    // }
+    // Object.assign(link, myLinkObj);
     let img = document.createElement('IMG');
-    img.src = data.content.imgBox
-    img.class ="fruits";
+    let myimgObj = {
+        src: data.content.imgBox,
+        className:"fruits"
+    }
+    Object.assign(img,myimgObj);
+    // img.src = data.content.imgBox
+    // img.class ="fruits";
     document.querySelector(".imgBox").insertAdjacentElement('afterbegin', img);
     //Thumb
     let thumb = `
     <li data-text="${data.thumb['data-text'][0]}" class="active"><img src="${data.thumb.imagenes[0]['Valor']}" onclick="imgSlider('${data.thumb.imagenes[0]['Valor']}'); changeBgColor('${data.thumb.colores[0]}')"></li>
     <li data-text="${data.thumb['data-text'][1]}"><img src="${data.thumb.imagenes[1]['Valor']}" onclick="imgSlider('${data.thumb.imagenes[1]['Valor']}'); changeBgColor('${data.thumb.colores[1]}')"></li>
-    <li data-text=${data.thumb['data-text'][2]}"><img src="${data.thumb.imagenes[2]['Valor']}" onclick="imgSlider('${data.thumb.imagenes[2]['Valor']}'); changeBgColor('${data.thumb.colores[2]}')"></li>
+    <li data-text="${data.thumb['data-text'][2]}"><img src="${data.thumb.imagenes[2]['Valor']}" onclick="imgSlider('${data.thumb.imagenes[2]['Valor']}'); changeBgColor('${data.thumb.colores[2]}')"></li>
     <li data-text="${data.thumb['data-text'][3]}"><img src="${data.thumb.imagenes[3]['Valor']}" onclick="imgSlider('${data.thumb.imagenes[3]['Valor']}'); changeBgColor('${data.thumb.colores[3]}')"></li>
     <li data-text="${data.thumb['data-text'][4]}"><img src="${data.thumb.imagenes[4]['Valor']}" onclick="imgSlider('${data.thumb.imagenes[4]['Valor']}'); changeBgColor('${data.thumb.colores[4]}')"></li>
     `;
@@ -44,26 +56,6 @@ addEventListener("DOMContentLoaded", async(e)=>{
     document.querySelector(".sci").insertAdjacentHTML('afterbegin', sci);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     let menuToggle = document.querySelector('.toggle');
         let navigation = document.querySelector('.navigation');
         menuToggle.onclick = function(){
@@ -71,15 +63,7 @@ addEventListener("DOMContentLoaded", async(e)=>{
             navigation.classList.toggle('active');
         }
 
-        //Cambiar imagen en click
-        function imgSlider(anything){
-            document.querySelector('.fruits').src=anything;
-        }
-        //Cambiar color de fondo
-        function changeBgColor(color){
-            const bg = document.querySelector('.bg');
-            bg.style.background = color;
-        }
+        
         //Agreagar clase activa en thumbnails
         let el = document.querySelectorAll('.thumb li');
         for (let i=0; i< el.length; i++){
@@ -92,3 +76,14 @@ addEventListener("DOMContentLoaded", async(e)=>{
             }
         }
     })   
+
+
+//Cambiar imagen en click
+function imgSlider(anything){
+    document.querySelector('.fruits').src=anything;
+}
+//Cambiar color de fondo
+function changeBgColor(color){
+    const bg = document.querySelector('.bg');
+    bg.style.background = color;
+}
